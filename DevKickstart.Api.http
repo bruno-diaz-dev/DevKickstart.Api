@@ -1,0 +1,6 @@
+@DevKickstart.Api_HostAddress = http://localhost:5119
+
+GET {{DevKickstart.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

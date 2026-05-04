@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "k7g84+dJ67LE8L0rLnVUP4dqf0MT7IR1IwpvCa2JuSY=",
+  "Source": "DevKickstart.Api",
+  "BasePath": "_content/DevKickstart.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
