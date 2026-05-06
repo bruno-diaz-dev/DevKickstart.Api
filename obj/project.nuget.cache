@@ -1,20 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "rH8X/s2ZyUE=",
+  "dgSpecHash": "d2aSgo83l1RgKJI71q/1RKlrFZkQJeritkFjXQHZKbj1Bmlk2pPNHXR6BCLBVBAJUcOP7T2VZg7PKj8xQHbfnA==",
   "success": true,
-  "projectFilePath": "/home/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
+  "projectFilePath": "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
   "expectedPackageFiles": [
-    "/home/brucie/.nuget/packages/microsoft.aspnetcore.openapi/8.0.10/microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
-    "/home/brucie/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
-    "/home/brucie/.nuget/packages/stackexchange.redis/2.12.14/stackexchange.redis.2.12.14.nupkg.sha512",
-    "/home/brucie/.nuget/packages/system.io.hashing/10.0.2/system.io.hashing.10.0.2.nupkg.sha512",
-    "/home/brucie/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.26/microsoft.aspnetcore.app.ref.8.0.26.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.26/microsoft.netcore.app.host.linux-x64.8.0.26.nupkg.sha512",
-    "/home/brucie/.nuget/packages/microsoft.netcore.app.ref/8.0.26/microsoft.netcore.app.ref.8.0.26.nupkg.sha512"
+    "/Users/brucie/.nuget/packages/microsoft.aspnetcore.openapi/8.0.10/microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/microsoft.extensions.apidescription.server/8.0.0/microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/microsoft.openapi/2.4.1/microsoft.openapi.2.4.1.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/stackexchange.redis/2.12.14/stackexchange.redis.2.12.14.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/swashbuckle.aspnetcore/10.1.7/swashbuckle.aspnetcore.10.1.7.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/swashbuckle.aspnetcore.swagger/10.1.7/swashbuckle.aspnetcore.swagger.10.1.7.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/swashbuckle.aspnetcore.swaggergen/10.1.7/swashbuckle.aspnetcore.swaggergen.10.1.7.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/swashbuckle.aspnetcore.swaggerui/10.1.7/swashbuckle.aspnetcore.swaggerui.10.1.7.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/system.io.hashing/10.0.2/system.io.hashing.10.0.2.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/system.text.json/8.0.5/system.text.json.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }

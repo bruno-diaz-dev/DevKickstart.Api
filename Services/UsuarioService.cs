@@ -1,18 +1,24 @@
-using DevKickstart.Api.Models;
+using DevKickstart.Application.Interfaces;
+using DevKickstart.Domain.Entities;
 
 namespace DevKickstart.Api.Services;
 
 public class UsuarioService
 {
-    public List<Usuario> FiltrarUsuarios(List<Usuario> usuarios, int edadMinima)
+    private readonly IUsuarioRepository _repository;
+    public UsuarioService(IUsuarioRepository repository)
     {
-        return usuarios
-            .Where(u => u.Activo && u.Edad > edadMinima)
-            .ToList();
+        _repository = repository;
+    }
+    public async Task<Usuario> CrearUsuario(string nombre)
+    {
+        var usuario = new Usuario(nombre);
+        await _repository.Guardar(usuario);
+        return usuario;
     }
 
-    public int ContarUsuariosActivos(List<Usuario> usuarios)
+    public async Task<Usuario?> ObtenerUsuario(Guid id)
     {
-        return usuarios.Count(u => u.Activo);
+        return await _repository.ObtenerPorId(id);
     }
 }

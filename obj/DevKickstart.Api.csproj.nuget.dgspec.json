@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/home/brucie/DevKickstart.Api/DevKickstart.Api.csproj": {}
+    "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj": {}
   },
   "projects": {
-    "/home/brucie/DevKickstart.Api/DevKickstart.Api.csproj": {
+    "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
+        "projectUniqueName": "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
         "projectName": "DevKickstart.Api",
-        "projectPath": "/home/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
-        "packagesPath": "/home/brucie/.nuget/packages/",
-        "outputPath": "/home/brucie/DevKickstart.Api/obj/",
+        "projectPath": "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
+        "packagesPath": "/Users/brucie/.nuget/packages/",
+        "outputPath": "/Users/brucie/DevKickstart.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/brucie/.nuget/NuGet/NuGet.Config"
+          "/Users/brucie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -52,6 +45,10 @@
             "StackExchange.Redis": {
               "target": "Package",
               "version": "[2.12.14, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.7, )"
             }
           },
           "imports": [
@@ -65,20 +62,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.26, 8.0.26]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.26, 8.0.26]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.26, 8.0.26]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -87,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.116/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.125/libexec/sdk/8.0.125/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

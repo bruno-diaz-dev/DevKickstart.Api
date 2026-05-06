@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using DevKickstart.Api.Models;
+using DevKickstart.Domain.Entities;
 using DevKickstart.Api.Services;
 
 namespace DevKickstart.Api.Controllers;
@@ -8,58 +8,26 @@ namespace DevKickstart.Api.Controllers;
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase
 {
-    private readonly UsuarioService _usuarioService;
-    private readonly RedisService _redisService;
+    private readonly UsuarioService _service;
 
-    public UsuariosController(RedisService redisService, UsuarioService usuarioService)
+    public UsuariosController(UsuarioService service)
     {
-        _redisService = redisService;
-        _usuarioService = usuarioService;
+        _service = service;
     }
 
-    [HttpGet]
-    public IActionResult GetUsuarios()
+    [HttpPost]
+    public async Task<IActionResult> Crear([FromBody] string nombre)
     {
-        var usuarios = new List<Usuario>
-        {
-            new Usuario { Nombre = "Ana", Edad = 28, Activo = true },
-            new Usuario { Nombre = "Luis", Edad = 22, Activo = false },
-            new Usuario { Nombre = "Carlos", Edad = 35, Activo = true },
-            new Usuario { Nombre = "Marta", Edad = 19, Activo = true },
-        };
-
-        return Ok(usuarios);
+        var usuario = await _service.CrearUsuario(nombre);
+        return Ok(usuario);
     }
 
-    [HttpGet("activos")]
-    public IActionResult GetActivos()
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Obtener(Guid id)
     {
-        var usuarios = new List<Usuario>
-        {
-            new Usuario { Nombre = "Ana", Edad = 28, Activo = true },
-            new Usuario { Nombre = "Luis", Edad = 22, Activo = false },
-            new Usuario { Nombre = "Carlos", Edad = 35, Activo = true },
-            new Usuario { Nombre = "Marta", Edad = 19, Activo = true },
-        };
-
-        var activos = _usuarioService.ContarUsuariosActivos(usuarios);
-
-        return Ok(new { Activos = activos });
+        var usuario = await _service.ObtenerUsuario(id);
+        if (usuario == null)
+            return NotFound();
+        return Ok(usuario);
     }
-
-    [HttpPost("cache")]
-    public async Task<IActionResult> GuardarEnCache()
-    {
-        await _redisService.SetValue("usuario", "Bruno");
-
-        return Ok("Guardado en Redis");
-    }
-
-    [HttpGet("cache")]
-    public async Task<IActionResult> ObtenerDeCache()
-    {
-        var valor = await _redisService.GetValue("usuario");
-
-        return Ok(new { valor });
-    }
-}
+ }
