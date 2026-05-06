@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using DevKickstart.Domain.Entities;
+using DevKickstart.Api.Contracts.Requests;
+using DevKickstart.Api.Contracts.Responses;
 using DevKickstart.Api.Services;
 
 namespace DevKickstart.Api.Controllers;
@@ -16,18 +17,34 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Crear([FromBody] string nombre)
+    public async Task<IActionResult> Crear(
+        [FromBody] CrearUsuarioRequest request)
     {
-        var usuario = await _service.CrearUsuario(nombre);
-        return Ok(usuario);
+        var usuario = await _service.CrearUsuario(request.Nombre);
+
+        var response = new UsuarioResponse
+        {
+            Id = usuario.Id,
+            Nombre = usuario.Nombre
+        };
+
+        return Ok(response);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Obtener(Guid id)
     {
         var usuario = await _service.ObtenerUsuario(id);
+
         if (usuario == null)
             return NotFound();
-        return Ok(usuario);
+
+        var response = new UsuarioResponse
+        {
+            Id = usuario.Id,
+            Nombre = usuario.Nombre
+        };
+
+        return Ok(response);
     }
  }

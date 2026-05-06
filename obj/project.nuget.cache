@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "d2aSgo83l1RgKJI71q/1RKlrFZkQJeritkFjXQHZKbj1Bmlk2pPNHXR6BCLBVBAJUcOP7T2VZg7PKj8xQHbfnA==",
+  "dgSpecHash": "R4qm2YctD+h1nUbhgIRwDK8mhJrx4dS3qD2GO3yXFthJro7bf+Wkr3jDLeDt2APpOSeJo41QQJgJyVgcENwPdg==",
   "success": true,
   "projectFilePath": "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
   "expectedPackageFiles": [
+    "/Users/brucie/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/fluentvalidation.aspnetcore/11.3.1/fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "/Users/brucie/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "/Users/brucie/.nuget/packages/microsoft.aspnetcore.openapi/8.0.10/microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
     "/Users/brucie/.nuget/packages/microsoft.extensions.apidescription.server/8.0.0/microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",
     "/Users/brucie/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",

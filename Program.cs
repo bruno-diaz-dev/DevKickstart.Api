@@ -2,6 +2,9 @@ using DevKickstart.Api.Configuration;
 using DevKickstart.Api.Services;
 using DevKickstart.Application.Interfaces;
 using DevKickstart.Infrastructure.Repositories;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,9 @@ builder.Services.Configure<RedisOptions>(
     builder.Configuration.GetSection("Redis"));
 
 builder.Services.AddSingleton<UsuarioService>();
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddSingleton<IUsuarioRepository, RedisUsuarioRepository>();
 

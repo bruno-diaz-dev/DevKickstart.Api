@@ -1,4 +1,4 @@
-namespace DevKicksrart.Api.Contracts.Responses;
+namespace DevKickstart.Api.Contracts.Responses;
 
 public class UsuarioResponse
 {
