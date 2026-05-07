@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevKickstart.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a12533fc24f97c64e27e5578b94c6d27c277fae3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2deedb0adf8fb2d01c52e0241a70833a3b1624a")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevKickstart.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevKickstart.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
