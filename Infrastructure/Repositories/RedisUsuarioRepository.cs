@@ -32,6 +32,15 @@ public class RedisUsuarioRepository : IUsuarioRepository
     return JsonSerializer.Deserialize<Usuario>(value!);
   }
 
+  public async Task<Usuario?> ObtenerPorNombre(
+    string nombre)
+  {
+    var usuarios = await ObtenerTodos();
+    return usuarios.FirstOrDefault(
+      u => u.Nombre == nombre
+    );
+  }
+
   public async Task<IEnumerable<Usuario>> ObtenerTodos()
   {
     var ids = await _database.SetMembersAsync("usuarios");

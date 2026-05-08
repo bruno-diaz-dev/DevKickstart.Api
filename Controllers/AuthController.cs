@@ -4,6 +4,8 @@ using DevKickstart.Api.Contracts.Responses;
 using DevKickstart.Api.Services.Auth;
 using Microsoft.AspNetCore.Mvc;
 using DevKickstart.Api.Services;
+using BCrypt.Net;
+using System.Threading.Tasks;
 
 namespace DevKickstart.Api.Controllers;
 
@@ -26,14 +28,44 @@ public class AuthController : ControllerBase
     
 
     [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login(
+        [FromBody] LoginRequest request)
     {
-        // En caso real, aqui se valida si el usuario existe y las credenciales son correctas
-        var token = _tokenService.CrearToken(request.Username);
+        var usuario =
+            await _usuarioService.ObtenerPorNombre(
+                request.Username
+            );
+
+        if (usuario == null)
+        {
+            return Unauthorized(
+                "Usuario o password incorrectos"
+            );
+        }
+
+        var passwordValido =
+            BCrypt.Net.BCrypt.Verify(
+                request.Password,
+                usuario.PasswordHash
+            );
+
+        if (!passwordValido)
+        {
+            return Unauthorized(
+                "Usuario o password incorrectos"
+            );
+        }
+
+        var token =
+            _tokenService.CrearToken(
+                usuario.Nombre
+            );
+
         var response = new LoginResponse
         {
             Token = token
         };
+
         return Ok(response);
     }
 
