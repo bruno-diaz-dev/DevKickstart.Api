@@ -6,6 +6,10 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using DevKickstart.Api.Middleware;
 using DevKickstart.Api.Services.Auth;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Text.Unicode;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +27,30 @@ builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddSingleton<IUsuarioRepository, RedisUsuarioRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowAnyOrigin();
+    });
+});
+
+var key = Encoding.UTF8.GetBytes("ESTA_ES_UNA_SECRET_KEY_SUPER_LARGA");
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -36,6 +64,11 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseCors("Frontend");
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

@@ -20,6 +20,8 @@ public class RedisUsuarioRepository : IUsuarioRepository
   {
     var json = JsonSerializer.Serialize(usuario);
     await _database.StringSetAsync(usuario.Id.ToString(), json);
+
+    await _database.SetAddAsync("usuarios", usuario.Id.ToString());
   }
 
   public async Task<Usuario?> ObtenerPorId(Guid id)
@@ -28,5 +30,26 @@ public class RedisUsuarioRepository : IUsuarioRepository
     if (value.IsNullOrEmpty)
       return null;
     return JsonSerializer.Deserialize<Usuario>(value!);
+  }
+
+  public async Task<IEnumerable<Usuario>> ObtenerTodos()
+  {
+    var ids = await _database.SetMembersAsync("usuarios");
+    var usuarios = new List<Usuario>();
+
+    foreach (var id in ids)
+    {
+      var value = await _database.StringGetAsync(id.ToString());
+
+      if (value.IsNullOrEmpty)
+          continue;
+      
+      var usuario = JsonSerializer.Deserialize<Usuario>(value!);
+      if (usuario != null)
+      {
+        usuarios.Add(usuario);
+      }
+    }
+    return usuarios;
   }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8mpT2iKgCjc12yrRxZe4kJ3nOwUidH9AGMstJx6nMLnuVFnNt7BjaZFyRUEg82XRbJ+deh0YoAMv/OsDjBfm2A==",
+  "dgSpecHash": "9ZBgLMTQs8NRIKK+OUQM0yrIPRFxVqpvBRNL3/IfxmpTz5B5n6dOINZK2J0YtqPTU4LAHFz2ohZPv43NOAurAA==",
   "success": true,
   "projectFilePath": "/Users/brucie/DevKickstart.Api/DevKickstart.Api.csproj",
   "expectedPackageFiles": [
+    "/Users/brucie/.nuget/packages/bcrypt.net-next/4.1.0/bcrypt.net-next.4.1.0.nupkg.sha512",
     "/Users/brucie/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
     "/Users/brucie/.nuget/packages/fluentvalidation.aspnetcore/11.3.1/fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
     "/Users/brucie/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
