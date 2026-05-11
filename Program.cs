@@ -18,7 +18,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<RedisOptions>(
     builder.Configuration.GetSection("Redis"));
-
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    _ => ConnectionMultiplexer.Connect(
+        "localhost:6379"
+    )
+);
 builder.Services.AddSingleton<UsuarioService>();
 
 builder.Services.AddSingleton<
