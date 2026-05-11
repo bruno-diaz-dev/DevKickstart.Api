@@ -1,4 +1,4 @@
-namespace DecKickstart.Api.Contracts.Requests;
+namespace DevKickstart.Api.Contracts.Requests;
 
 public class RegisterRequest
 {
