@@ -11,5 +11,9 @@ public class CrearUsuarioRequestValidator : AbstractValidator<CrearUsuarioReques
             .WithMessage("El nombre es obligatorio.")
             .MinimumLength(3)
             .WithMessage("El nombre debe tener al menos 3 caracteres.");
+
+        RuleFor(c => c.Password)
+            .NotEmpty()
+            .WithMessage("La contraseña es obligatoria.");
     }
 }

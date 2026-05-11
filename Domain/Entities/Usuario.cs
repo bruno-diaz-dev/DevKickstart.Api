@@ -21,4 +21,15 @@ public class Usuario
         Nombre = nombre;
         PasswordHash = passwordHash;
     }
+
+    private Usuario(Guid id, string nombre, string passwordHash)
+        : this(nombre, passwordHash)
+    {
+        Id = id;
+    }
+
+    public static Usuario Rehidratar(Guid id, string nombre, string passwordHash)
+    {
+        return new Usuario(id, nombre, passwordHash);
+    }
 }

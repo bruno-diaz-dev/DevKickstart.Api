@@ -29,7 +29,8 @@ public class RedisUsuarioRepository : IUsuarioRepository
     var value = await _database.StringGetAsync(id.ToString());
     if (value.IsNullOrEmpty)
       return null;
-    return JsonSerializer.Deserialize<Usuario>(value!);
+
+    return DeserializarUsuario(value!);
   }
 
   public async Task<Usuario?> ObtenerPorNombre(
@@ -53,12 +54,38 @@ public class RedisUsuarioRepository : IUsuarioRepository
       if (value.IsNullOrEmpty)
           continue;
       
-      var usuario = JsonSerializer.Deserialize<Usuario>(value!);
+      var usuario = DeserializarUsuario(value!);
       if (usuario != null)
       {
         usuarios.Add(usuario);
       }
     }
     return usuarios;
+  }
+
+  private static Usuario? DeserializarUsuario(string json)
+  {
+    var usuarioGuardado = JsonSerializer.Deserialize<UsuarioGuardado>(json);
+
+    if (usuarioGuardado == null ||
+        usuarioGuardado.Id == Guid.Empty ||
+        string.IsNullOrWhiteSpace(usuarioGuardado.Nombre) ||
+        string.IsNullOrWhiteSpace(usuarioGuardado.PasswordHash))
+    {
+      return null;
+    }
+
+    return Usuario.Rehidratar(
+      usuarioGuardado.Id,
+      usuarioGuardado.Nombre,
+      usuarioGuardado.PasswordHash
+    );
+  }
+
+  private sealed class UsuarioGuardado
+  {
+    public Guid Id { get; set; }
+    public string Nombre { get; set; } = string.Empty;
+    public string PasswordHash { get; set; } = string.Empty;
   }
 }

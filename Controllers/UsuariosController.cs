@@ -22,7 +22,12 @@ public class UsuariosController : ControllerBase
     public async Task<IActionResult> Crear(
         [FromBody] CrearUsuarioRequest request)
     {
-        var usuario = await _service.CrearUsuario(request.Nombre, string.Empty);
+        var passwordHash =
+            BCrypt.Net.BCrypt.HashPassword(
+                request.Password
+            );
+
+        var usuario = await _service.CrearUsuario(request.Nombre, passwordHash);
 
         var response = new UsuarioResponse
         {

@@ -13,7 +13,7 @@ public class UsuarioService
         _repository = repository;
     }
 
-    public async Task<Usuario?> CrearUsuario(
+    public async Task<Usuario> CrearUsuario(
         string nombre,
         string passwordHash)
     {
